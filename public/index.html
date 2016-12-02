@@ -6,28 +6,115 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+    <link rel="stylesheet" href="/style/base.css">
   </head>
   <body>
-    <p>
-      Hello World!
-    </p>
+    <table id="schedule">
+      <thead>
+        <tr>
+          <td>Employee</td>
+          <td>Is Gray-Shirt</td>
+          <td>Full Time</td>
+          <td>Fries</td>
+          <td>Grill</td>
+          <td>Bun</td>
+          <td>Till</td>
+          <td>Lobby</td>
+          <td>Expo</td>
+          <td>BOH</td>
+        </tr>
+      </thead>
+    </table>
+    <section id="form">
+      <form class="" action="index.html" method="post">
+        <h1>Add Employee</h1>
+
+        <label for="name"> Employee Name </label>
+        <input id = "namebox" type="text" name="name" required>
+
+        <div id="fries-container">
+              <label for="fries"class="label-body">Fries:
+                <input class="position" type="radio" name="fries" value="trained" required>
+                <span class="label-body">Trained</span>
+
+                <input class="position" type="radio" name="fries" value="untrained">
+                <span class="label-body">Untrained</span>
+        </div>
+
+        <div id="grill-container">
+              <label for="grill"class="label-body">Grill:
+                <input class="position" type="radio" name="grill" value="trained" required>
+                <span class="label-body">Trained</span>
+
+                <input class="position" type="radio" name="grill" value="untrained">
+                <span class="label-body">Untrained</span>
+        </div>
+
+        <div id="buns-container">
+              <label for="buns"class="label-body">Buns:
+                <input class="position" type="radio" name="buns" value="trained" required>
+                <span class="label-body">Trained</span>
+
+                <input class="position" type="radio" name="buns" value="untrained">
+                <span class="label-body">Untrained</span>
+        </div>
+
+        <div id="till-container">
+              <label for="till"class="label-body">Till:
+                <input class="position" type="radio" name="Till" value="trained" required>
+                <span class="label-body">Trained</span>
+
+                <input class="position" type="radio" name="till" value="untrained">
+                <span class="label-body">Untrained</span>
+        </div>
+
+        <div id="lobby-container">
+              <label for="lobby"class="label-body">Lobby:
+                <input class="position" type="radio" name="lobby" value="trained" required>
+                <span class="label-body">Trained</span>
+
+                <input class="position" type="radio" name="fries" value="untrained">
+                <span class="label-body">Untrained</span>
+        </div>
+
+        <div id="expo-container">
+              <label for="expo"class="label-body">Expo:
+                <input class="position" type="radio" name="expo" value="trained" required>
+                <span class="label-body">Trained</span>
+
+                <input class="position" type="radio" name="expo" value="untrained">
+                <span class="label-body">Untrained</span>
+        </div>
+
+        <div id="boh-container">
+              <label for="boh"class="label-body">BOH:
+                <input class="position" type="radio" name="boh" value="trained" required>
+                <span class="label-body">Trained</span>
+
+                <input class="position" type="radio" name="boh" value="untrained">
+                <span class="label-body">Untrained</span>
+        </div>
+
+        <div id="manager">
+          <label class = "label-body">Grey-Shirt?
+            <input class ="position" type="checkbox" name="manager">
+        </div>
+
+        <div id="fullTime">
+          <label class = "label-body">Full-Time?
+            <input class ="position" type="checkbox" name="fullTime">
+        </div>
+
+        <button id="submitbutton" type="submit" name="submit">Add Employee</button>
+      </form>
+    </section>
   </body>
   <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase-database.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyC9gcx-fL74yws9kyMm1etnAJs5cwc4V7k",
-      authDomain: "burgertimeschedulizer.firebaseapp.com",
-      databaseURL: "https://burgertimeschedulizer.firebaseio.com",
-      storageBucket: "burgertimeschedulizer.appspot.com",
-      messagingSenderId: "291119456518"
-    };
-    firebase.initializeApp(config);
-  </script>
-  
+  <script type="text/javascript" src="config.js"></script>
+
   <script type="text/javascript" src="model/staff.js"></script>
 </html>

@@ -9,7 +9,7 @@
   //   array of skills as bools[true, false...],
   //   availibility = array of times,
   //   isgray = bool,
-  //   numHoursPerWeek = float
+  //   fullTime = float
   // ]
   function employee(args) {
     this.name = args[0];
@@ -24,7 +24,7 @@
     }
     this.availibility = args[2];
     this.isGray = args[3];
-    this.numHoursPerWeek = args[4];
+    this.fullTime = args[4];
   }
 
   Staff.writeEmployeeData = function(args) {
@@ -41,10 +41,8 @@
       },
       availibility: args[2],
       isGray: args[3],
-      numHoursPerWeek: args[4]
+      fullTime: args[4]
     });
-
-    console.log(1);
   }
 
 
