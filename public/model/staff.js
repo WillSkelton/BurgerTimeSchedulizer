@@ -2,6 +2,8 @@
 
   const Staff = {}
   Staff.allEmployees = [];
+  Staff.names = [];
+
   Staff.numStaff = Staff.allEmployees.length;
 
   // args is an array.
@@ -29,9 +31,15 @@
     this.fullTime = args[5];
   }
 
-  Staff.getEmployeeData = function() {
-    Staff.numStaff = Staff.allEmployees.length;
-  }
+
+  Staff.getEmployeeData = function(){
+    //var userId = firebase.auth().currentUser.uid; NOTE: This is for authorization
+
+    return firebase.database().ref('staff/').once('value').then(function(snapshot) {
+      return snapshot.val();
+    })
+
+  };
 
   Staff.writeEmployeeData = function(args) {
     firebase.database().ref('staff/' + args[0]).set({
@@ -52,11 +60,10 @@
     });
   }
 
-
   Staff.addEmployee = function(event) {
     event.preventDefault();
     Staff.e = event;
-    console.log(Staff.e.currentTarget);
+
     let args = [
       Staff.numStaff,
       Staff.e.currentTarget.name.value,
@@ -74,14 +81,46 @@
       $('input[name="manager"]').is(':checked'),
       $('input[name="fullTime"]').is(':checked')
     ];
-    // console.log(args);
-    // console.log(args[2][0]);
 
-    Employee = new employee(args);
-    Staff.writeEmployeeData(args);
-    Staff.numStaff++;
+
+
+    console.log(Staff.names);
+
+
+
+    // EMPLOYEE EXISTS
+    console.log();
+    if ((Staff.names.indexOf((Staff.e.currentTarget.name.value).toLowerCase())) !== -1) {
+      console.log('EMPLOYEE EXISTS');
+    }
+    // EMPLOYEE DOES NOT EXIST
+    else {
+      console.log('EMPLOYEE DOES NOT EXIST. CREATING NEW EMPLOYEE.');
+      Employee = new employee(args);
+      Staff.writeEmployeeData(args);
+      Staff.numStaff++;
+    }
+
+
+    Staff.allEmployees = [];
+    Staff.names = [];
+
+    Staff.getEmployeeData().then(function(people){
+      people.forEach((e) => {
+        Staff.allEmployees.push(e)
+        Staff.names.push((e['name']).toLowerCase());
+      })
+      Staff.numStaff = Staff.allEmployees.length;
+    });
   }
 
+  Staff.getEmployeeData().then(function(people){
+    people.forEach((e) => {
+      Staff.allEmployees.push(e)
+      Staff.names.push((e['name']).toLowerCase());
+    })
+    Staff.numStaff = Staff.allEmployees.length;
+  });
 
 
   $('#newEmployeeForm').on('submit', Staff.addEmployee);
