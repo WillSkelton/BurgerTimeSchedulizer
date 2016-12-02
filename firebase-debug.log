@@ -54,3 +54,31 @@
 [info] Public Directory: public
 [info] 
 [info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Willi\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.0
+[debug] Platform:     win32
+[debug] Node Version: v4.6.0
+[debug] Time:         Thu Dec 01 2016 19:12:31 GMT-0800 (Pacific Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\Willi\projects\solo\BurgerTimeSchedulizer
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Willi\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.2.0
+[debug] Platform:     win32
+[debug] Node Version: v4.6.0
+[debug] Time:         Thu Dec 01 2016 19:14:34 GMT-0800 (Pacific Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\Users\Willi\projects\solo\BurgerTimeSchedulizer
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
