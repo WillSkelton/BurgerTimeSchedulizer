@@ -33,24 +33,6 @@
     Staff.numStaff = Staff.allEmployees.length;
   }
 
-  Staff.addEmployee = function(event) {
-    event.preventDefault();
-    Staff.e = event;
-    console.log(Staff.e.currentTarget);
-    let args = [
-      Staff.numStaff,
-      Staff.e.currentTarget.name.value,
-      $('input[name="fries"]:checked').val(),
-      $('input[name="grill"]:checked').val(),
-      $('input[name="buns"]:checked').val(),
-      $('input[name="till"]:checked').val(),
-      $('input[name="lobby"]:checked').val(),
-      $('input[name="expo"]:checked').val(),
-      $('input[name="boh"]:checked').val(),
-    ];
-    console.log(args);
-  }
-
   Staff.writeEmployeeData = function(args) {
     firebase.database().ref('staff/' + args[0]).set({
       empNum: args[0],
@@ -70,6 +52,38 @@
     });
   }
 
-  $('#form').on('submit', Staff.addEmployee);
+
+  Staff.addEmployee = function(event) {
+    event.preventDefault();
+    Staff.e = event;
+    console.log(Staff.e.currentTarget);
+    let args = [
+      Staff.numStaff,
+      Staff.e.currentTarget.name.value,
+      // Skills
+      [
+        $('input[name="fries"]:checked').val(),
+        $('input[name="grill"]:checked').val(),
+        $('input[name="buns"]:checked').val(),
+        $('input[name="till"]:checked').val(),
+        $('input[name="lobby"]:checked').val(),
+        $('input[name="expo"]:checked').val(),
+        $('input[name="boh"]:checked').val()
+      ],
+      'availibility',
+      $('input[name="manager"]').is(':checked'),
+      $('input[name="fullTime"]').is(':checked')
+    ];
+    // console.log(args);
+    // console.log(args[2][0]);
+
+    Employee = new employee(args);
+    Staff.writeEmployeeData(args);
+    Staff.numStaff++;
+  }
+
+
+
+  $('#newEmployeeForm').on('submit', Staff.addEmployee);
   ctx.Staff = Staff;
 })(window)
